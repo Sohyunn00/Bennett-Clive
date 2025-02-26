@@ -1,2 +1,141 @@
 @charset "utf-8";
 @import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  height: 10000px;
+}
+:is(body .container, section) {
+  width: 100%;
+}
+
+/* 🍅🍅 헤더 */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: end;
+  gap: 0.8vw;
+  z-index: 1000;
+  padding: 0.6vw;
+}
+header a {
+  color: blue;
+  font-size: 1.6vw;
+  font-weight: 700;
+  line-height: 1;
+}
+header a:first-child::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+.center_text {
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: calc(50% - 2ch);
+  z-index: 1000;
+  padding: 0.6vw;
+}
+.center_text a {
+  color: blue;
+  font-size: 1.8vw;
+  font-weight: 700;
+}
+/* 🍅🍅 비디오 슬라이드 섹션 */
+.video_slide {
+  width: 100%;
+  height: fit-content;
+}
+.video_slide > .up {
+  width: 100%;
+  height: 100vh;
+}
+.video_slide .up video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* opacity: 0.5; */
+}
+.video_slide .title_wrap {
+  /* position: fixed; */
+  padding: 0.6vw;
+  z-index: 1;
+}
+.video_slide .box {
+  width: fit-content;
+  position: absolute;
+}
+:is(.title_wrap .box a, .bottom_title_wrap p) {
+  font-size: 10.4vw;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.4vw;
+  line-height: 0.8;
+}
+/* .bottom_title_wrap {
+  position: fixed;
+  padding: 0.6vw;
+  top: 50%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  z-index: 1;
+} */
+/* 섹션1 */
+.sec1 {
+  padding: 0.6vw;
+  padding-top: 30px;
+}
+.top_title {
+  width: 100%;
+}
+.top_title div {
+  font-size: 10.4vw;
+  font-weight: 740;
+  line-height: 0.7;
+  letter-spacing: -0.5vw;
+}
+.top_title .idea {
+  position: absolute;
+  right: 0.6vw;
+  transform: translateY(-8vh);
+}
+.bottom_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 7.8vw;
+  gap: 7.8vw;
+}
+.bottom_grid .text_box {
+  grid-column: 3 / span 1;
+}
+.bottom_grid .text_box p {
+  font-size: 2vw;
+  font-weight: 720;
+  letter-spacing: -0.05vw;
+  line-height: 1.1;
+}
+.bottom_grid .text_box a {
+  width: fit-content;
+  font-size: 1em;
+  font-weight: 700;
+  display: block;
+  padding: 0.1vw 0.5vw;
+  border: 1px solid #000;
+  border-radius: 50px;
+}
