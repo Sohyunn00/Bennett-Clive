@@ -5,13 +5,12 @@
 body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
-  height: 10000px;
 }
-:is(body .container, section) {
+:is(body .container, section, footer) {
   width: 100%;
 }
 
-/* 🍅🍅 헤더 */
+/* 헤더 🍅🍅🍅 */
 header {
   width: 100%;
   position: fixed;
@@ -37,23 +36,224 @@ header a:first-child::after {
   height: 3px;
   background-color: #fff;
 }
+/* 햄버거 버튼 🍅🍅🍅 */
+.ham_button {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  mix-blend-mode: difference;
+  position: fixed;
+  right: 0.6rem;
+  top: 0.6rem;
+  width: 2.4rem;
+  height: 2rem;
+  z-index: 9999;
+  cursor: pointer;
+}
+.ham_button::before {
+  background-color: transparent;
+  bottom: -1rem;
+  content: "";
+  left: -1rem;
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+}
+.ham_button .toggle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.ham_button .toggle span {
+  height: 0.3rem;
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.32, 0.94, 0.6, 1);
+  transform: scaleX(1);
+}
+.ham_button :is(.toggle, .toggle_cross) span::before {
+  background-color: currentColor;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform-origin: right;
+  transition: transform 0.8s cubic-bezier(0.32, 0.94, 0.6, 1);
+  width: 100%;
+}
+.ham_button .toggle span:first-child::before {
+  transition-delay: 0.65s;
+  transform: scaleX(1);
+}
+.ham_button .toggle span:last-child::before {
+  transition-delay: 0.75s;
+  transform: scaleX(1);
+}
+.ham_button.on .toggle span:first-child::before {
+  transition-delay: 0s;
+  transform: scaleX(0);
+}
+.ham_button.on .toggle span:last-child::before {
+  transition-delay: 0.1s;
+  transform: scaleX(0);
+}
+.ham_button .toggle_cross {
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.ham_button .toggle_cross span {
+  height: 0.3rem;
+  width: 100%;
+  position: absolute;
+  top: 0.8rem;
+  transform-origin: 50% 50% 0;
+  transform-origin: initial;
+}
+.ham_button .toggle_cross span:first-child {
+  transform: rotate(45deg);
+}
+.ham_button .toggle_cross span:last-child {
+  transform: rotate(-45deg);
+}
+.ham_button .toggle_cross span:first-child::before {
+  transition-delay: 0s;
+  transform: scaleX(0);
+}
+.ham_button .toggle_cross span:last-child::before {
+  transition-delay: 0.1s;
+  transform: scaleX(0);
+}
+.ham_button.on .toggle_cross span:first-child::before {
+  transition-delay: 0.65s;
+  transform: scaleX(1);
+}
+.ham_button.on .toggle_cross span:last-child::before {
+  transition-delay: 0.75s;
+  transform: scaleX(1);
+}
+/* 햄버거 메뉴 🍅🍅🍅 */
+.ham_menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+  padding: 0.8vw;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.32, 0.94, 0.6, 1);
+}
+.ham_menu.on {
+  opacity: 1;
+  transition-duration: 0.6s;
+}
+.ham_menu .top_menu a {
+  display: block;
+  font-size: 3.6rem;
+  letter-spacing: -0.2vw;
+  line-height: 0.9;
+  font-weight: 700;
+}
+.ham_menu .center_logo p {
+  height: 2vw;
+  font-size: 5vw;
+  font-weight: 700;
+  position: fixed;
+  line-height: 2vw;
+  z-index: 999;
+}
+.center_logo p:nth-child(1) {
+  left: 0.8vw;
+  top: calc(50% - 1vw);
+}
+.center_logo p:nth-child(2) {
+  width: 6vw;
+  text-align: center;
+  left: calc(50% - 3vw);
+  top: calc(50% - 1vw);
+}
+.center_logo p:nth-child(3) {
+  right: 0.8vw;
+  top: calc(50% - 1vw);
+}
+.bottom_menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 6rem;
+  gap: 0 6rem;
+  row-gap: 1rem;
+  padding-bottom: 1rem;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.32, 0.94, 0.6, 1);
+  transition-delay: 0.4s;
+}
+.bottom_menu.on {
+  opacity: 1;
+}
+.bottom_menu > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottom_menu > div :is(p, a, span) {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.04vw;
+  line-height: 1.4;
+}
+.bottom_menu > div a {
+  display: block;
+  width: fit-content;
+  position: relative;
+}
+.bottom_menu .time {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+/* 센터 텍스트 🍅🍅🍅 */
 .center_text {
   width: 100%;
-  height: 4vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: calc(50% - 2ch);
-  z-index: 1000;
-  padding: 0.6vw;
 }
 .center_text a {
   color: blue;
+  display: block;
+  height: 2vw;
   font-size: 1.8vw;
   font-weight: 700;
+  position: fixed;
+  line-height: 2vw;
+  z-index: 999;
 }
-/* 🍅🍅 비디오 슬라이드 섹션 */
+.center_text a:nth-child(1) {
+  left: 0.6vw;
+  top: calc(50% - 1vw);
+}
+.center_text a:nth-child(2) {
+  width: 6vw;
+  text-align: center;
+  left: calc(50% - 3vw);
+  top: calc(50% - 1vw);
+}
+.center_text a:nth-child(3) {
+  right: 0.6vw;
+  top: calc(50% - 1vw);
+}
+/* 비디오 슬라이드 섹션 🍅🍅🍅 */
 .video_slide {
   width: 100%;
   height: fit-content;
@@ -68,9 +268,10 @@ header a:first-child::after {
   object-fit: cover;
   /* opacity: 0.5; */
 }
-.video_slide .title_wrap {
-  /* position: fixed; */
-  padding: 0.6vw;
+.title_wrap {
+  position: absolute;
+  top: 0.6vw;
+  left: 0.6vw;
   z-index: 1;
 }
 .video_slide .box {
@@ -85,18 +286,17 @@ header a:first-child::after {
   letter-spacing: -0.4vw;
   line-height: 0.8;
 }
-/* .bottom_title_wrap {
-  position: fixed;
-  padding: 0.6vw;
-  top: 50%;
-  right: 0;
+.bottom_title_wrap {
+  position: absolute;
+  top: calc(50% + 1vw);
+  right: 0.6vw;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: end;
   z-index: 1;
-} */
-/* 섹션1 */
+}
+/* 섹션 1 🍅🍅🍅 */
 .sec1 {
   padding: 0.6vw;
   margin-top: 1vw;
@@ -114,7 +314,7 @@ header a:first-child::after {
 .top_title .idea {
   position: absolute;
   right: 0.6vw;
-  transform: translateY(-8vh);
+  transform: translateY(-4vw);
 }
 .bottom_grid {
   display: grid;
@@ -137,7 +337,7 @@ header a:first-child::after {
   font-size: 0.9em;
   font-weight: 700;
   display: block;
-  padding: 0 6%;
+  padding: 2% 6%;
   border: 1px solid #000;
   border-radius: 50px;
 }
@@ -145,10 +345,11 @@ header a:first-child::after {
   background: #000;
   color: #fff;
 }
-/* 섹션 2 */
+/* 섹션 2 🍅🍅🍅 */
 .sec2 {
   height: 120%;
   position: relative;
+  padding: 10% 0;
   background-color: lightgreen;
 }
 .sec2 .center_video {
@@ -162,13 +363,13 @@ header a:first-child::after {
 }
 .sec2 .left_title {
   position: absolute;
-  left: 0;
+  left: 0.6vw;
   bottom: 52%;
 }
 .sec2 .right_title {
   position: absolute;
   top: 52%;
-  right: 0;
+  right: 0.6vw;
   text-align: end;
 }
 .sec2 p {
@@ -176,5 +377,98 @@ header a:first-child::after {
   font-weight: 700;
   letter-spacing: -0.2vw;
   line-height: 0.9;
-  backdrop-filter: invert;
+  /* backdrop-filter: invert(1); */
+}
+/* 섹션 3 🍅🍅🍅 */
+.brand_wrap {
+  width: 100%;
+  margin-top: 8vw;
+}
+.brand_wrap .brand_row {
+  gap: 0.5vw;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.brand_row :is(.left, .right) {
+  width: calc(50% - 0.25vw);
+}
+.brand_row .left {
+  display: flex;
+  justify-content: end;
+}
+.brand_row .right {
+  display: flex;
+  justify-content: start;
+}
+.brand_row p {
+  font-size: 3.2vw;
+  line-height: 0.9;
+  font-weight: 740;
+  letter-spacing: -0.1vw;
+}
+.brand_row img {
+  max-width: 8vw;
+  height: 1.6em;
+}
+/* 푸터 🍅🍅🍅 */
+footer {
+  margin-top: 15.6vw;
+}
+footer .con {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 7.8vw;
+  gap: 0 7.8vw;
+}
+.con > div {
+  display: flex;
+  flex-direction: column;
+  grid-column-end: span 1;
+  justify-content: flex-end;
+  row-gap: 0.4em;
+}
+footer .con :is(p, a, span) {
+  font-size: 1.04vw;
+  font-weight: 700;
+  letter-spacing: -0.04vw;
+  line-height: 1;
+}
+footer .con a {
+  display: block;
+  width: fit-content;
+  position: relative;
+}
+:is(footer .con, .bottom_menu > div) a:before {
+  background-color: currentColor;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.4s;
+  width: 100%;
+}
+:is(footer .con, .bottom_menu > div) a:hover:before {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.footer_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8.2rem;
+  padding-right: 0.6vw;
+}
+.footer_title a {
+  display: block;
+  height: fit-content;
+  font-size: 12.5vw;
+  font-weight: 700;
+  letter-spacing: -0.4vw;
+  line-height: 0.8;
 }

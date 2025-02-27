@@ -6,6 +6,8 @@
     <title>Bennett & Clive</title>
 
     <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/responsible.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
@@ -20,51 +22,96 @@
         <a href="#">ABOUT</a>
         <a href="#">CONTACT</a>
       </header>
+      <!-- 햄버거 메뉴 -->
+      <button class="ham_button">
+        <span class="toggle">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="toggle_cross">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+      <div class="ham_menu">
+        <div class="top_menu">
+          <a href="#">HOME</a>
+          <a href="#">WORK</a>
+          <a href="#">ABOUT</a>
+        </div>
+        <div class="center_logo">
+          <p>BENNETT</p>
+          <p>&amp;</p>
+          <p>CLIVE</p>
+        </div>
+        <div class="bottom_menu">
+          <div class="time">
+            <p class="ny">New York <span>21:28</span></p>
+            <p class="la">Los Angeles <span>18:28</span></p>
+            <p class="mi">Miami <span>21:30</span></p>
+          </div>
+          <div class="contact1">
+            <p>Work with us:</p>
+            <a href="#">info@bennettandclive.com</a>
+            <p>CEO, Founder:</p>
+            <p>Sara Mouzayanni</p>
+          </div>
+          <div class="contact2">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+          </div>
+          <div class="contact3">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
       <!-- 센터 텍스트 -->
       <div class="center_text">
         <a href="#">BENNETT</a>
         <a href="#">&amp;</a>
         <a href="#">CLIVE</a>
       </div>
+      <!-- 텍스트 슬라이드 섹션 -->
+      <div class="title_wrap">
+        <div class="box">
+          <a href="#">Adidas</a>
+        </div>
+        <div class="box">
+          <a href="#">Calvin Klein</a>
+        </div>
+        <div class="box">
+          <a href="#">Hourglass</a>
+        </div>
+        <div class="box">
+          <a href="#">Eilish</a>
+        </div>
+        <div class="box">
+          <a href="#">The Outset</a>
+        </div>
+        <div class="box">
+          <a href="#">MAC</a>
+        </div>
+      </div>
+      <div class="bottom_title_wrap">
+        <div class="box">
+          <p>Calvin Klein</p>
+        </div>
+        <div class="box">
+          <p>Hourglass</p>
+        </div>
+        <div class="box">
+          <p>Eilish</p>
+        </div>
+        <div class="box">
+          <p>The Outset</p>
+        </div>
+        <div class="box">
+          <p>MAC</p>
+        </div>
+      </div>
       <!-- 비디오 슬라이드 섹션 -->
       <section class="video_slide">
-        <div class="title_wrap">
-          <div class="box">
-            <a href="#">Adidas</a>
-          </div>
-          <div class="box">
-            <a href="#">Calvin Klein</a>
-          </div>
-          <div class="box">
-            <a href="#">Hourglass</a>
-          </div>
-          <div class="box">
-            <a href="#">Eilish</a>
-          </div>
-          <div class="box">
-            <a href="#">The Outset</a>
-          </div>
-          <div class="box">
-            <a href="#">MAC</a>
-          </div>
-        </div>
-        <!-- <div class="bottom_title_wrap">
-          <div class="box">
-            <p>Calvin Klein</p>
-          </div>
-          <div class="box">
-            <p>Hourglass</p>
-          </div>
-          <div class="box">
-            <p>Eilish</p>
-          </div>
-          <div class="box">
-            <p>The Outset</p>
-          </div>
-          <div class="box">
-            <p>MAC</p>
-          </div>
-        </div> -->
         <div class="video1 up">
           <video src="./img/main1.mp4" muted loop>
             이 비디오는 해당 브라우저에서 지원되지 않습니다.
@@ -148,73 +195,105 @@
       <section class="sec3">
         <div class="brand_wrap">
           <div class="brand_row">
-            <p>Givenchy</p>
-            <img src="./img/brand1.svg" alt="logo" />
+            <div class="left"><p>Givenchy</p></div>
+            <div class="right"><img src="./img/brand1.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand2.svg" alt="logo" />
-            <p>Hourglass</p>
+            <div class="left"><img src="./img/brand2.svg" alt="logo" /></div>
+            <div class="right"><p>Hourglass</p></div>
           </div>
           <div class="brand_row">
-            <p>Mert & Marcus</p>
-            <img src="./img/brand3.svg" alt="logo" />
+            <div class="left"><p>Mert & Marcus</p></div>
+            <div class="right"><img src="./img/brand3.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand4.jpg" alt="logo" />
-            <p>Stella McCartney</p>
+            <div class="left"><img src="./img/brand4.jpg" alt="logo" /></div>
+            <div class="right"><p>Stella McCartney</p></div>
           </div>
           <div class="brand_row">
-            <p>Craig McDean</p>
-            <p>Juergen Teller</p>
+            <div class="left"><p>Craig McDean</p></div>
+            <div class="right"><p>Juergen Teller</p></div>
           </div>
           <div class="brand_row">
-            <p>Viviane Sassen</p>
-            <img src="./img/brand5.svg" alt="logo" />
+            <div class="left"><p>Viviane Sassen</p></div>
+            <div class="right"><img src="./img/brand5.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand6.svg" alt="logo" />
-            <p>Vegamour</p>
-          </div>
-
-          <div class="brand_row">
-            <p>Steven Klein</p>
-            <p>Living Proof</p>
+            <div class="left"><img src="./img/brand6.svg" alt="logo" /></div>
+            <div class="right"><p>Vegamour</p></div>
           </div>
           <div class="brand_row">
-            <p>Willy Vanderperre</p>
-            <img src="./img/brand7.svg" alt="logo" />
+            <div class="left"><p>Augustinus Bader</p></div>
+            <div class="right"><img src="./img/brand7.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand8.svg" alt="logo" />
-            <p>Johannes Leonardo</p>
+            <div class="left"><p>Steven Klein</p></div>
+            <div class="right"><p>Living Proof</p></div>
           </div>
           <div class="brand_row">
-            <p>Ilia Beauty</p>
-            <img src="./img/brand9.svg" alt="logo" />
+            <div class="left"><p>Willy Vanderperre</p></div>
+            <div class="right"><img src="./img/brand8.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand10.svg" alt="logo" />
-            <p>Nutrire</p>
+            <div class="left"><img src="./img/brand9.svg" alt="logo" /></div>
+            <div class="right"><p>Johannes Leonardo</p></div>
           </div>
           <div class="brand_row">
-            <p>Amazon</p>
-            <p>Ben Hassett</p>
+            <div class="left"><p>Ilia Beauty</p></div>
+            <div class="right"><img src="./img/brand10.svg" alt="logo" /></div>
           </div>
           <div class="brand_row">
-            <p>Wyn Beauty</p>
-            <img src="./img/brand11.svg" alt="logo" />
+            <div class="left"><img src="./img/brand11.svg" alt="logo" /></div>
+            <div class="right"><p>Nutrire</p></div>
           </div>
           <div class="brand_row">
-            <img src="./img/brand12.svg" alt="logo" />
-            <p>U Beauty</p>
+            <div class="left"><p>Amazon</p></div>
+            <div class="right"><p>Ben Hassett</p></div>
           </div>
           <div class="brand_row">
-            <p>Mazarine</p>
-            <p>Eilish</p>
+            <div class="left"><p>Wyn Beauty</p></div>
+            <div class="right"><img src="./img/brand12.svg" alt="logo" /></div>
+          </div>
+          <div class="brand_row">
+            <div class="left"><img src="./img/brand13.svg" alt="logo" /></div>
+            <div class="right"><p>U Beauty</p></div>
+          </div>
+          <div class="brand_row">
+            <div class="left"><p>Mazarine</p></div>
+            <div class="right"><p>Eilish</p></div>
           </div>
         </div>
       </section>
+      <!-- 푸터 -->
+      <footer>
+        <div class="con">
+          <div class="time">
+            <p class="ny">New York <span>21:28</span></p>
+            <p class="la">Los Angeles <span>18:28</span></p>
+            <p class="mi">Miami <span>21:30</span></p>
+          </div>
+          <div class="contact1">
+            <p>Work with us:</p>
+            <a href="#">info@bennettandclive.com</a>
+            <p>CEO, Founder:</p>
+            <p>Sara Mouzayanni</p>
+          </div>
+          <div class="contact2">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+          </div>
+          <div class="contact3">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </footer>
+      <div class="footer_title">
+        <a href="#">BENNETT</a>
+        <a href="#">&amp;</a>
+        <a href="#">CLIVE</a>
+      </div>
     </div>
-    <!-- <script src="./js/js.js"></script> -->
+    <script src="./js/js.js"></script>
   </body>
 </html>

@@ -1,0 +1,49 @@
+@media screen and (max-width: 767px) {
+  header {
+    display: none;
+  }
+  .bottom_menu > div {
+    grid-column-end: span 2;
+  }
+  /* 센터 텍스트 🍅 */
+  .center_text a {
+    font-size: 5vw;
+  }
+  /* 텍스트 슬라이드 🍅 */
+  .title_wrap {
+    top: 1vw;
+    left: 1vw;
+    z-index: 1;
+  }
+  .bottom_title_wrap {
+    top: calc(50% + 3vw);
+    right: 1vw;
+  }
+  :is(.title_wrap .box a, .bottom_title_wrap p) {
+    font-size: 8vw;
+  }
+  /* 섹션 1 🍅 */
+  .top_title {
+    margin-bottom: 7rem;
+  }
+  .top_title div {
+    font-size: 8vw;
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.5vw;
+  }
+  .bottom_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .bottom_grid .text_box {
+    background-color: antiquewhite;
+    grid-column: 1 / span 2;
+  }
+  .bottom_grid .text_box p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
