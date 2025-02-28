@@ -23,8 +23,11 @@
     font-size: 8vw;
   }
   /* 섹션 1 🍅 */
+  .sec1 {
+    margin-bottom: 14vw;
+  }
   .top_title {
-    margin-bottom: 7rem;
+    margin-bottom: 6rem;
   }
   .top_title div {
     font-size: 8vw;
@@ -45,5 +48,225 @@
   .bottom_grid .text_box p {
     font-size: 1.2rem;
     text-align: center;
+    margin-bottom: 2vw;
+  }
+  .bottom_grid .text_box a {
+    margin: 0 auto;
+  }
+  /* 섹션 2 🍅 */
+  /* .sec2 {
+    margin-bottom: 26rem;
+    min-height: 200vw;
+    padding: 40rem 1rem 0;
+    position: relative;
+  }
+  .sec2 .video_reel {
+    height: 120%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .sec2 .video_reel .inner_grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 3rem;
+    gap: 0 3rem;
+  }
+  .inner_grid .center_video {
+    grid-column: 1 / span 2;
+    height: 80%;
+  }
+  .inner_grid .center_video video {
+    width: auto;
+    height: 100%;
+  } */
+  /* 섹션 3 🍅 */
+  .brand_wrap {
+    margin-top: 0;
+  }
+  .brand_wrap .brand_row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .brand_row :is(.left, .right) {
+    width: fit-content;
+    display: block;
+  }
+  .brand_row p {
+    font-size: 4vw;
+    line-height: 1;
+    font-weight: 700;
+  }
+  .brand_row img {
+    max-width: 24vw;
+    height: 1.6em;
+  }
+  /* 푸터 🍅 */
+  footer {
+    margin-top: 18rem;
+  }
+  footer .con {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+    gap: 0 3rem;
+    row-gap: 1.6rem;
+  }
+  .con > div {
+    grid-column-end: span 2;
+    row-gap: 0;
+  }
+  footer .con :is(p, a, span) {
+    font-size: 0.9rem;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+  }
+  .footer_title {
+    margin-top: 2rem;
+    padding-right: 0.6vw;
+  }
+}
+/* 🥦🥦🥦 */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    display: none;
+  }
+  /* 센터 텍스트 🍅 */
+  .center_text a {
+    font-size: 5vw;
+  }
+  .title_wrap {
+    top: 1.4vw;
+    left: 1vw;
+  }
+  .bottom_title_wrap {
+    top: calc(50% + 4vw);
+    right: 1vw;
+  }
+  :is(.title_wrap .box a, .bottom_title_wrap p) {
+    font-size: 13vw;
+  }
+  /* 섹션 1 🍅 */
+  .sec1 {
+    margin-bottom: 14vw;
+  }
+  .top_title {
+    margin-bottom: 6rem;
+  }
+  .top_title div {
+    font-size: 12vw;
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: -0.5vw;
+  }
+  .top_title .idea {
+    transform: translateY(-9vw);
+  }
+  .bottom_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .bottom_grid .text_box {
+    grid-column: 1 / span 2;
+  }
+  .bottom_grid .text_box p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2vw;
+  }
+  .bottom_grid .text_box a {
+    margin: 0 auto;
+  }
+  /* 섹션 2 🍅 */
+  /* .sec2 {
+    height: auto;
+    padding: 0;
+    margin-bottom: 16rem;
+  }
+  .sec2 .center_video {
+    height: 100vh;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+  }
+  .sec2 .center_video video {
+    width: auto;
+    height: 80%;
+    object-fit: cover;
+    grid-column: 1 / span 2;
+  }
+  .sec2 p {
+    font-size: 7.6vw;
+    line-height: 0.9;
+    font-weight: 760;
+  } */
+  /* 섹션 3 🍅 */
+  .brand_wrap {
+    margin-top: 0;
+  }
+  .brand_wrap .brand_row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .brand_row :is(.left, .right) {
+    width: fit-content;
+    display: block;
+  }
+  .brand_row p {
+    font-size: 5vw;
+    line-height: 1;
+    font-weight: 720;
+  }
+  .brand_row img {
+    max-width: 30vw;
+    height: 2.2em;
+  }
+  /* 푸터 🍅 */
+  footer .con :is(p, a, span) {
+    font-size: 1.4vw;
+  }
+  footer .con {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 4rem;
+    gap: 0 2rem;
+    row-gap: 2rem;
+  }
+  .footer_title {
+    margin-top: 2rem;
+  }
+}
+/* 🥦🥦🥦 */
+@media screen and (min-width: 1024px) {
+  .ham_button {
+    display: none;
+  }
+  /* 섹션 2 🍅 */
+  /* .sec2 {
+    height: 120;
+    padding: 0;
+    margin-bottom: 8rem;
+  }
+  .sec2 .center_video {
+    height: 100vh;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+  }
+  .sec2 .center_video video {
+    height: 80%;
+    object-fit: cover;
+    grid-column: 1 / span 4;
+  } */
+  /* 섹션 3 🍅 */
+  .brand_wrap {
+    margin-top: 0;
+  }
+  .footer_title {
+    margin-top: 3rem;
   }
 }
