@@ -74,90 +74,52 @@
       </div>
       <!-- 메인비주얼 슬라이드 -->
       <div class="home">
-        <div class="home_wrap">
-          <div class="trigger_wrap">
-            <div class="trigger"></div>
-            <div class="trigger"></div>
-            <div class="trigger"></div>
-            <div class="trigger"></div>
-            <div class="trigger"></div>
-            <div class="trigger"></div>
-          </div>
-          <div class="home_inner">
-            <div class="home_sticky">
-              <!-- 텍스트 슬라이드 섹션 -->
-              <div class="title_wrap">
-                <div class="title_box">
-                  <div class="box">
-                    <a href="#">Adidas</a>
-                  </div>
-                  <div class="box">
-                    <a href="#">Calvin Klein</a>
-                  </div>
-                  <div class="box">
-                    <a href="#">Hourglass</a>
-                  </div>
-                  <div class="box">
-                    <a href="#">Eilish</a>
-                  </div>
-                  <div class="box">
-                    <a href="#">The Outset</a>
-                  </div>
-                  <div class="box">
-                    <a href="#">MAC</a>
-                  </div>
-                </div>
-              </div>
-              <div class="bottom_title_wrap">
-                <div class="box">
-                  <p>Calvin Klein</p>
-                </div>
-                <div class="box">
-                  <p>Hourglass</p>
-                </div>
-                <div class="box">
-                  <p>Eilish</p>
-                </div>
-                <div class="box">
-                  <p>The Outset</p>
-                </div>
-                <div class="box">
-                  <p>MAC</p>
-                </div>
-              </div>
-              <!-- 비디오 슬라이드 섹션 -->
-              <div class="video_slide">
-                <div class="video1 up">
-                  <video src="./img/main1.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-                <div class="video2 up">
-                  <video src="./img/main2.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-                <div class="video3 up">
-                  <video src="./img/main3.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-                <div class="video4 up">
-                  <video src="./img/main4.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-                <div class="video5 up">
-                  <video src="./img/main5.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-                <div class="video6 up">
-                  <video src="./img/main6.mp4" muted loop>
-                    이 비디오는 해당 브라우저에서 지원되지 않습니다.
-                  </video>
-                </div>
-              </div>
+        <div class="sticky">
+          <ul class="brand-list left">
+            <a href="#" class="brand-item">Adidas</a>
+            <a href="#" class="brand-item">Calvin Klein</a>
+            <a href="#" class="brand-item">Hourglass</a>
+            <a href="#" class="brand-item">Eilish</a>
+            <a href="#" class="brand-item">The Outset</a>
+            <a href="#" class="brand-item">MAC</a>
+          </ul>
+          <ul class="brand-list right" aria-hidden="true">
+            <li class="brand-item">Calvin Klein</li>
+            <li class="brand-item">Hourglass</li>
+            <li class="brand-item">Eilish</li>
+            <li class="brand-item">The Outset</li>
+            <li class="brand-item">MAC</li>
+          </ul>
+          <div class="slide-area">
+            <div class="slide">
+              <video src="./img/main1.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+            <div class="slide">
+              <video src="./img/main2.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+            <div class="slide">
+              <video src="./img/main3.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+            <div class="slide">
+              <video src="./img/main4.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+            <div class="slide">
+              <video src="./img/main5.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+            <div class="slide">
+              <video src="./img/main6.mp4" muted loop>
+                이 비디오는 해당 브라우저에서 지원되지 않습니다.
+              </video>
             </div>
           </div>
         </div>
@@ -320,5 +282,6 @@
       </footer>
     </div>
     <script src="./js/js.js"></script>
+    <script src="./js/gsap.js"></script>
   </body>
 </html>

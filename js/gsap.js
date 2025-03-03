@@ -1,79 +1,125 @@
 // 메인 동영상 슬라이드 --------------------------------------
 
-// document.addEventListener("DOMContentLoaded", (event) => {
-//   gsap.registerPlugin(ScrollTrigger);
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".home",
+    start: "0% 0%",
+    end: "100%, 100%",
+    scrub: 0,
+    snap: {
+      snapTo: "labels",
+      duration: { min: 0.2, max: 1 },
+      delay: 0.1,
+    },
+  },
+});
 
-//   const panel = document.querySelector(".video1");
-//   let panels = gsap.utils.toArray(".up");
-//   let tops = panels.map((panel) =>
-//     ScrollTrigger.create({ trigger: panel, start: "top top" })
-//   );
+const slideEls = document.querySelectorAll(".slide");
 
-//   panels.forEach((panel, i) => {
-//     ScrollTrigger.create({
-//       trigger: panel,
-//       start: () =>
-//         panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-//       pin: true,
-//       pinSpacing: false,
-//     });
-//   });
+slideEls.forEach(function (slideEl, index) {
+  const lastIndex = slideEls.length - 1;
 
-//   // 슬라이드 중간에 멈추면 가까운 쪽으로 채우기
-//   ScrollTrigger.create({
-//     snap: {
-//       snapTo: (progress, self) => {
-//         let panelStarts = tops.map((st) => st.start); // 모든 패널의 start 값 가져오기
-//         let snapScroll = gsap.utils.snap(panelStarts, self.scroll());
+  if (index !== lastIndex) {
+    tl.to(slideEl, { height: 0 }, `a${index}`);
+  }
+});
 
-//         // 현재 스크롤 위치가 마지막 슬라이드에 해당하면 snap 적용 X
-//         let maxScroll = ScrollTrigger.maxScroll(window);
-//         if (self.scroll() >= maxScroll - 10) {
-//           return self.scroll(); // 현재 위치 유지 (snap 적용 안 함)
-//         }
+// 왼쪽 텍스트 슬라이드 --------------------------------------
 
-//         return gsap.utils.normalize(0, maxScroll, snapScroll);
-//       },
-//       duration: 0.5,
-//     },
-//   });
+for (let i = 1; i < $(".brand-list.left .brand-item").length; i++) {
+  tl.to(
+    `.brand-list.left .brand-item:nth-child(${i})`,
+    {
+      yPercent: `-${i}00`,
+    },
+    `a${i - 1}`
+  )
+    .to(
+      `.brand-list.left .brand-item:nth-child(${i + 1})`,
+      {
+        scale: 1,
+      },
+      `a${i - 1}`
+    )
+    .to(
+      `.brand-list.left .brand-item:nth-child(n+${i + 1})`,
+      {
+        yPercent: `-${i}00`,
+      },
+      `a${i - 1}`
+    );
+}
 
-//   const boxes = gsap.utils.toArray(".box");
+// 오른쪽 텍스트 슬라이드 --------------------------------------
 
-//   boxes.forEach((box, index) => {
-//     const nextBox = boxes[index + 1];
+for (let i = 1; i <= $(".brand-list.right .brand-item").length; i++) {
+  tl.to(
+    `.brand-list.right .brand-item:nth-child(${i})`,
+    {
+      scale: 0,
+    },
+    `a${i - 1}`
+  ).to(
+    `.brand-list.right .brand-item:nth-child(n+${i + 1})`,
+    {
+      yPercent: `-${i}00`,
+    },
+    `a${i - 1}`
+  );
+}
 
-//     if (nextBox) {
-//       gsap.to(box, {
-//         y: -200, // 위로 밀려남
-//         scrollTrigger: {
-//           trigger: ".up",
-//           start: "top top",
-//           end: "bottom top",
-//           scrub: true,
-//           markers: true,
-//           duration: 1,
-//         },
-//       });
+// 섹션2 왼쪽 텍스트 슬라이드 --------------------------------------
 
-//       gsap.fromTo(
-//         nextBox,
-//         { scale: 0 },
-//         {
-//           scale: 1, // 커짐
-//           transformOrigin: "bottom left",
-//           scrollTrigger: {
-//             trigger: ".up",
-//             start: "top 10vh", // 현재 박스가 화면 중앙에 올 때 새 박스 등장
-//             end: "bottom top",
-//             stagger: {
-//               each: 1,
-//             },
-//             scrub: true,
-//             duration: 1,
-//           },
-//         }
-//       );
-//     }
-//   });
-// });
+const tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".sec2",
+    start: "50% 50%",
+    end: "100%, 50%",
+    scrub: 0,
+  },
+});
+
+for (let i = 1; i < $(".left_title p").length; i++) {
+  tl2
+    .to(
+      `.left_title p:nth-child(${i})`,
+      {
+        scale: 1,
+      },
+      `a${i - 1}`
+    )
+    .to(
+      `.left_title p:nth-child(${i + 1})`,
+      {
+        yPercent: `-${i}00`,
+      },
+      `a${i - 1}`
+    )
+    .to(
+      `.left_title p:nth-child(n+${i + 1})`,
+      {
+        yPercent: `-${i}00`,
+      },
+      `a${i - 1}`
+    );
+}
+
+// 오른쪽 텍스트 슬라이드 --------------------------------------
+
+for (let i = 1; i <= $(".right_title p").length; i++) {
+  tl2
+    .to(
+      `.right_title p:nth-child(${i})`,
+      {
+        scale: 0,
+      },
+      `a${i - 1}`
+    )
+    .to(
+      `.right_title p:nth-child(n+${i + 1})`,
+      {
+        yPercent: `-${i}00`,
+      },
+      `a${i - 1}`
+    );
+}

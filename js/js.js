@@ -1,6 +1,6 @@
 "use strict";
 
-// 부드러운 스크롤 -----------------------------------------
+// 부드러운 스크롤 ------------------------------
 const lenis = new Lenis();
 
 lenis.on("scroll", (e) => {
@@ -13,7 +13,7 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// 햄버거 메뉴 -----------------------------------------
+// 햄버거 메뉴 -----------------------------------
 
 $(function () {
   $(".ham_button").on("click", function () {
