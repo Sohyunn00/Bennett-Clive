@@ -109,37 +109,72 @@ for (let i = 1; i <= $(".right_list li").length; i++) {
 
 // sec3 브랜드 & 효과 --------------------------------------
 
+// gsap.utils.toArray(".brand_row").forEach((row, i) => {
+//   let left = row.querySelector(".left"),
+//     right = row.querySelector(".right");
+
+//   gsap.to(left, {
+//     xPercent: -10, // 왼쪽 이동
+//     opacity: 0.8,
+//     scrollTrigger: {
+//       trigger: row,
+//       end: "top 20%",
+//       scrub: 1,
+//       ease: "power2.out",
+//       stagger: 0.1,
+//       toggleActions: "play reverse play reverse",
+//     },
+//   });
+
+//   gsap.to(right, {
+//     xPercent: 10, // 오른쪽 이동
+//     opacity: 0.8,
+//     scrollTrigger: {
+//       trigger: row,
+//       start: "top 80%",
+//       end: "top 20%",
+//       scrub: 1,
+//       ease: "power2.out",
+//       stagger: 0.1,
+//       toggleActions: "play reverse play reverse",
+//     },
+//   });
+// });
+
 gsap.utils.toArray(".brand_row").forEach((row, i) => {
-  let left = row.querySelector(".left"),
-    right = row.querySelector(".right");
+  let left = row.querySelector(".left");
+  let right = row.querySelector(".right");
 
-  gsap.to(left, {
-    xPercent: -10, // 왼쪽 이동
-    opacity: 0.8,
-    scrollTrigger: {
-      trigger: row,
-      end: "top 20%",
-      scrub: 1,
-      ease: "power2.out",
-      stagger: 0.1,
-      toggleActions: "play reverse play reverse",
-    },
-  });
+  gsap.fromTo(
+    [left, right],
+    { x: 0 }, // 처음엔 중앙에 붙어 있음
+    {
+      x: (index) => (index === 0 ? -100 : 100), // 왼쪽 요소는 왼쪽으로, 오른쪽 요소는 오른쪽으로 이동
+      scrollTrigger: {
+        trigger: row,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: true,
+      },
+    }
+  );
 
-  gsap.to(right, {
-    xPercent: 10, // 오른쪽 이동
-    opacity: 0.8,
-    scrollTrigger: {
-      trigger: row,
-      start: "top 80%",
-      end: "top 20%",
-      scrub: 1,
-      ease: "power2.out",
-      stagger: 0.1,
-      toggleActions: "play reverse play reverse",
-    },
-  });
+  // 다시 중앙으로 붙는 효과
+  gsap.fromTo(
+    [left, right],
+    { x: (index) => (index === 0 ? -100 : 100) },
+    {
+      x: 0,
+      scrollTrigger: {
+        trigger: row,
+        start: "top 30%",
+        end: "top 0%",
+        scrub: true,
+      },
+    }
+  );
 });
+
 // 푸터 제목 --------------------------------------
 gsap
   .timeline({
