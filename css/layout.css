@@ -5,11 +5,81 @@
 body {
   font-family: "Inter", sans-serif;
   font-size: 1.4rem;
+  background-color: #fff;
 }
 :is(body .container, section, footer) {
   width: 100%;
 }
-
+/* 인트로 🍅🍅🍅 */
+.intro {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-weight: 700;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+.intro > p {
+  font-size: 3rem;
+  letter-spacing: -0.1rem;
+}
+.intro .center_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.center_title span {
+  display: block;
+  height: fit-content;
+  font-size: 12.5vw;
+  letter-spacing: -0.4vw;
+  line-height: 0.8;
+  padding-right: 0.6vw;
+}
+.intro .bottom_slide {
+  display: flex;
+  gap: 1vw;
+}
+.intro .bottom_slide p {
+  font-size: 3rem;
+}
+.intro .slide_wrap {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  gap: 0;
+}
+.bottom_slide.list1 {
+  animation: slide1 12s linear infinite;
+}
+.bottom_slide.list2 {
+  animation: slide2 12s linear infinite;
+}
+@keyframes slide1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes slide2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 /* 헤더 🍅🍅🍅 */
 header {
   width: 100%;
@@ -22,9 +92,10 @@ header {
   gap: 0.8vw;
   z-index: 1000;
   padding: 0.6vw;
+  color: #fff;
+  mix-blend-mode: difference;
 }
 header a {
-  color: blue;
   font-size: 1.6vw;
   font-weight: 700;
   line-height: 1.2;
@@ -212,7 +283,7 @@ header a:first-child::after {
   flex-direction: column;
   align-items: center;
 }
-.bottom_menu > div :is(p, a, span) {
+.bottom_menu > div :is(p, a, span, li) {
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: -0.04vw;
@@ -233,7 +304,8 @@ header a:first-child::after {
   width: 100%;
 }
 .center_text a {
-  color: blue;
+  color: #fff;
+  mix-blend-mode: difference;
   display: block;
   height: 2vw;
   font-size: 1.8vw;
@@ -293,7 +365,7 @@ header a:first-child::after {
 }
 .brand-list.left .brand-item {
   padding-top: 1rem;
-  line-height: 0.73;
+  line-height: 0.8;
   transform-origin: left top;
   /* transform 기준점 left top으로 설정 */
 }
@@ -405,7 +477,6 @@ header a:first-child::after {
   min-height: 75vw;
   padding: 20vw 0.6vw 0;
   position: relative;
-  background-color: lightgreen;
 }
 .sec2 .video_reel_box {
   height: 120%;
@@ -441,44 +512,49 @@ header a:first-child::after {
   position: absolute;
   top: 0;
 }
-.sec2 .left_title {
-  position: fixed;
+.sec2 > ul {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+.sec2 .left_list {
+  /* position: fixed; */
   left: 0.6vw;
   bottom: 52%;
-  z-index: 1;
 }
-.sec2 p {
-  /* color: #fff; */
+.sec2 li {
   font-size: 5.4vw;
   font-weight: 700;
   letter-spacing: -0.2vw;
   line-height: 0.9;
   white-space: nowrap;
-  /* mix-blend-mode: difference; */
 }
-.sec2 .left_title p {
+.sec2 .left_list li {
   transform: scale(0);
   transform-origin: left bottom;
   position: absolute;
   bottom: 0;
+  /* bottom: 52%; */
 }
-.sec2 .right_title {
+.sec2 .right_list {
   position: absolute;
+  align-items: flex-end;
   top: 52%;
   right: 0.6vw;
-  text-align: end;
-  z-index: 1;
 }
-.sec2 .right_title p {
+.sec2 .right_list li {
   position: sticky;
   top: 52%;
-  transform: scale(1);
   transform-origin: right top;
 }
 /* 섹션 3 🍅🍅🍅 */
 .brand_wrap {
   width: 100%;
   margin-top: 8vw;
+  overflow: hidden;
 }
 .brand_wrap .brand_row {
   gap: 0.5vw;
@@ -526,7 +602,10 @@ footer .con {
   justify-content: flex-end;
   row-gap: 0.4em;
 }
-footer .con :is(p, a, span) {
+.con .time ul :is(li:nth-child(1), li:nth-child(2)) {
+  margin-bottom: 0.4em;
+}
+footer .con :is(p, a, span, li) {
   font-size: 1.04vw;
   font-weight: 700;
   letter-spacing: -0.04vw;
@@ -567,4 +646,20 @@ footer .con a {
   font-weight: 700;
   letter-spacing: -0.4vw;
   line-height: 0.8;
+}
+.footer_title a:first-child {
+  transform-origin: left bottom;
+  transform: scale(0);
+}
+.footer_title a:last-child {
+  transform-origin: right bottom;
+  transform: scale(0);
+}
+.colon {
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
