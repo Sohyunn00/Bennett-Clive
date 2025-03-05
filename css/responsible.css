@@ -115,7 +115,7 @@
     grid-column-end: span 2;
     row-gap: 0;
   }
-  footer .con :is(p, a, span) {
+  footer .con :is(p, a, span, li) {
     font-size: 0.9rem;
     letter-spacing: -0.05em;
     line-height: 1.2;
@@ -123,6 +123,12 @@
   .footer_title {
     margin-top: 2rem;
     padding-right: 0.6vw;
+  }
+  .footer_title a:first-child {
+    transform: scale(1);
+  }
+  .footer_title a:last-child {
+    transform: scale(1);
   }
 }
 /* 🥦🥦🥦 */
@@ -244,6 +250,12 @@
   }
   .footer_title {
     margin-top: 2rem;
+  }
+  .footer_title a:first-child {
+    transform: scale(1);
+  }
+  .footer_title a:last-child {
+    transform: scale(1);
   }
 }
 /* 🥦🥦🥦 */

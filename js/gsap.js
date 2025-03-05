@@ -1,5 +1,25 @@
 gsap.registerPlugin(ScrollTrigger);
 
+// 인트로 --------------------------------------
+
+// gsap
+//   .timeline()
+//   .fromTo(".intro .slide_wrap", { y: 200 }, { y: 0, duration: 1 })
+//   .to(".center_title .left", { scale: 0.15, duration: 1 }, "+=1")
+//   .to(
+//     ".center_title .center",
+//     {
+//       scale: 0.15,
+//       left: "50%",
+//       xPercent: -50,
+//       duration: 1,
+//     },
+//     "-=1"
+//   )
+//   .to(".center_title .right", { scale: 0.15, duration: 1 }, "-=1")
+//   .to(".intro > p", { y: -100 }, "-=1")
+//   .to(".intro .slide_wrap", { y: 100 }, "-=1");
+
 // 메인 동영상 슬라이드 --------------------------------------
 
 const tl = gsap.timeline({
@@ -70,121 +90,98 @@ for (let i = 1; i <= $(".brand-list.right .brand-item").length; i++) {
   );
 }
 
-// 섹션2 왼쪽 텍스트 슬라이드 --------------------------------------
+// 섹션2 텍스트 슬라이드 --------------------------------------
 
 const tl2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".sec2",
     start: "50% 50%",
-    end: "100%, 100%",
-    scrub: 0,
-    markers: true,
+    end: "100% 100%",
+    pin: true,
+    scrub: 1,
+    duration: 3,
   },
 });
 
-for (let i = 1; i < $(".left_list li").length; i++) {
+const leftItems = document.querySelectorAll(".left_list li");
+const rightItems = document.querySelectorAll(".right_list li");
+
+leftItems.forEach((item, i) => {
+  // 왼쪽
   tl2
-    .to(`.left_list li:nth-child(${i})`, {
-      scale: 1,
-    })
-    .to(`.left_list li:nth-child(${i + 1})`, {
-      yPercent: `-${i}00`,
-    })
-    .to(`.left_list li:nth-child(n+${i + 1})`, {
-      yPercent: `-${i}00`,
-    });
-}
-
-// 오른쪽 텍스트 슬라이드 --------------------------------------
-
-for (let i = 1; i <= $(".right_list li").length; i++) {
-  tl2
-    .to(`.right_list li:nth-child(${i})`, {
-      scale: 0,
-    })
-    .to(`.right_list li:nth-child(n+${i + 1})`, {
-      yPercent: `-${i}00`,
-    });
-}
-
-// sec3 브랜드 & 효과 --------------------------------------
-
-// gsap.utils.toArray(".brand_row").forEach((row, i) => {
-//   let left = row.querySelector(".left"),
-//     right = row.querySelector(".right");
-
-//   gsap.to(left, {
-//     xPercent: -10, // 왼쪽 이동
-//     opacity: 0.8,
-//     scrollTrigger: {
-//       trigger: row,
-//       end: "top 20%",
-//       scrub: 1,
-//       ease: "power2.out",
-//       stagger: 0.1,
-//       toggleActions: "play reverse play reverse",
-//     },
-//   });
-
-//   gsap.to(right, {
-//     xPercent: 10, // 오른쪽 이동
-//     opacity: 0.8,
-//     scrollTrigger: {
-//       trigger: row,
-//       start: "top 80%",
-//       end: "top 20%",
-//       scrub: 1,
-//       ease: "power2.out",
-//       stagger: 0.1,
-//       toggleActions: "play reverse play reverse",
-//     },
-//   });
-// });
-
-gsap.utils.toArray(".brand_row").forEach((row, i) => {
-  let left = row.querySelector(".left");
-  let right = row.querySelector(".right");
-
-  gsap.fromTo(
-    [left, right],
-    { x: 0 }, // 처음엔 중앙에 붙어 있음
-    {
-      x: (index) => (index === 0 ? -100 : 100), // 왼쪽 요소는 왼쪽으로, 오른쪽 요소는 오른쪽으로 이동
-      scrollTrigger: {
-        trigger: row,
-        start: "top 80%",
-        end: "top 30%",
-        scrub: true,
-      },
-    }
-  );
-
-  // 다시 중앙으로 붙는 효과
-  gsap.fromTo(
-    [left, right],
-    { x: (index) => (index === 0 ? -100 : 100) },
-    {
-      x: 0,
-      scrollTrigger: {
-        trigger: row,
-        start: "top 30%",
-        end: "top 0%",
-        scrub: true,
-      },
-    }
-  );
+    .to(leftItems[i], { scale: 1 }) // 현재 요소 확대
+    .to(leftItems[i - 1], { yPercent: -90 * i }, "<") // 이전 요소 이동
+    .to(leftItems, { yPercent: -90 * i }, "<") // 모든 요소 이동
+    // 오른쪽
+    .to(rightItems[i], { scale: 0 }, "<") // 오른쪽 요소 축소
+    .to(rightItems[i - 1], { yPercent: -90 * i }, "<") // 오른쪽 요소 이동
+    .to(rightItems, { yPercent: -100 * i }, "<"); // 모든 오른쪽 요소 이동
 });
 
-// 푸터 제목 --------------------------------------
-gsap
-  .timeline({
-    scrollTrigger: {
-      trigger: "footer",
-      start: "0% 95%",
-      end: "100%, 100%",
-      scrub: 1,
-      markers: true,
-    },
-  })
-  .to(".footer_title a:first-child", { scale: 1 })
-  .to(".footer_title a:last-child", { scale: 1 });
+// 큰 화면에서만 동작하는 애니메이션
+
+ScrollTrigger.matchMedia({
+  "(min-width: 1024px)": function () {
+    // sec3 브랜드 & 효과 --------------------------------------
+
+    gsap.utils.toArray(".brand_row").forEach((row, i) => {
+      let left = row.querySelector(".left");
+      let right = row.querySelector(".right");
+
+      gsap.fromTo(
+        [left, right],
+        { x: 0 }, // 처음엔 중앙에 붙어 있음
+        {
+          x: (index) => (index === 0 ? -90 : 90), // 왼쪽 요소는 왼쪽으로, 오른쪽 요소는 오른쪽으로 이동
+          scrollTrigger: {
+            trigger: row,
+            start: "top 60%",
+            end: "top 45%",
+            scrub: true,
+          },
+        }
+      );
+
+      // 다시 중앙으로 붙는 효과
+      gsap.fromTo(
+        [left, right],
+        { x: (index) => (index === 0 ? -90 : 90) },
+        {
+          x: 0,
+          scrollTrigger: {
+            trigger: row,
+            start: "top 45%",
+            end: "top 30%",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    // 푸터에서 제목 커지는 효과 --------------------------------------
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".container",
+          start: "90% 90%",
+          end: "100%, 100%",
+          scrub: true,
+        },
+      })
+      .to(
+        ".center_text .left, .center_text .right",
+        {
+          y: 500,
+          duration: 2,
+          ease: "power2.out",
+        },
+        "+=1"
+      )
+      .to(".center_text .left, .center_text .right", {
+        scale: 6.6,
+        duration: 2,
+        ease: "power2.out",
+      });
+  },
+});

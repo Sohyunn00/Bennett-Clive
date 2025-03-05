@@ -14,6 +14,13 @@ window.addEventListener("load", function () {
 
   introElement.style.opacity = 1;
   setTimeout(hideIntro, 3000); // 3초 후 사라짐
+
+  const blur = document.querySelector(".slide-area .slide:first-child");
+  function blurEffect() {
+    blur.style.filter = "blur(0)";
+  }
+
+  setTimeout(blurEffect, 4000);
 });
 
 // 부드러운 스크롤 ------------------------------
@@ -45,6 +52,13 @@ $(function () {
   });
 });
 
+// 화면 크기가 변경될 때 메뉴 자동 닫기
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1024) {
+    $(".ham_menu").removeClass("on");
+  }
+});
+
 // 세계 시간 -----------------------------------
 
 let currentHour = 0;
@@ -68,13 +82,13 @@ const printTime = () => {
     const minute = clockEl.querySelector(".minute");
 
     if (clockEl.dataset.zone === "new-york") {
-      getTime(-4);
+      getTime(-5);
     }
     if (clockEl.dataset.zone === "los-angeles") {
-      getTime(-7);
+      getTime(-8);
     }
     if (clockEl.dataset.zone === "miami") {
-      getTime(-4);
+      getTime(-5);
     }
 
     hour.textContent = currentHour;
