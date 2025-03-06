@@ -1,5 +1,12 @@
 "use strict";
 
+// 새로고침시 맨 위로 올리기 ------------------------------
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+window.scrollTo(0, 0);
+
 // 인트로 화면 ------------------------------
 
 window.addEventListener("load", function () {
@@ -8,16 +15,16 @@ window.addEventListener("load", function () {
   function hideIntro() {
     introElement.style.opacity = 0;
     setTimeout(() => {
-      introElement.style.display = "none"; // 완전히 숨김
-    }, 500); // 0.5초 뒤 display: none 적용
+      introElement.style.display = "none";
+    }, 500);
   }
 
   introElement.style.opacity = 1;
   setTimeout(hideIntro, 3000); // 3초 후 사라짐
 
-  const blur = document.querySelector(".slide-area .slide:first-child");
+  const blur = document.querySelector(".sticky .blur");
   function blurEffect() {
-    blur.style.filter = "blur(0)";
+    blur.style.backdropFilter = "blur(0)";
   }
 
   setTimeout(blurEffect, 4000);
