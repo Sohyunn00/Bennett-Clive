@@ -441,6 +441,7 @@ header a:first-child::after {
   width: 100%;
   height: 100vh;
   object-fit: cover;
+  filter: brightness(0.8);
 }
 /* 섹션 1 🍅🍅🍅 */
 .sec1 {
@@ -494,7 +495,6 @@ header a:first-child::after {
 /* 섹션 2 🍅🍅🍅 */
 .sec2 {
   height: 3000px;
-  background-color: aliceblue;
   position: relative;
 }
 .sec2 .sticky {
@@ -502,7 +502,7 @@ header a:first-child::after {
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: lemonchiffon;
+  background-color: #fff;
 }
 .sec2 .sticky .sticky_con {
   width: 100%;
@@ -565,7 +565,6 @@ header a:first-child::after {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  background-color: salmon;
 }
 .brand_row :is(.left, .right) {
   width: calc(50% - 0.25vw);

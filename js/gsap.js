@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: ".home",
       start: "0% 0%",
-      end: "100%, 100%",
+      end: "100%, 90%",
       scrub: 1,
       snap: {
         snapTo: 1 / (slideEls.length - 1),
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         let right = row.querySelector(".right");
 
         // 초기 상태를 설정 (중앙에 위치)
-        gsap.set([left, right], { x: 0 });
+        gsap.to([left, right], { x: 0 });
 
         gsap.to([left, right], {
           x: (index) => (index === 0 ? -90 : 90), // 왼쪽 요소는 왼쪽으로, 오른쪽 요소는 오른쪽으로 이동

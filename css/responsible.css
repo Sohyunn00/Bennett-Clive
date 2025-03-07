@@ -10,17 +10,8 @@
     font-size: 5vw;
   }
   /* 텍스트 슬라이드 🍅 */
-  .title_wrap {
-    top: 1vw;
-    left: 1vw;
-    z-index: 1;
-  }
-  .bottom_title_wrap {
-    top: calc(50% + 3vw);
-    right: 1vw;
-  }
-  :is(.title_wrap .box a, .bottom_title_wrap p) {
-    font-size: 8vw;
+  .right .brand-item {
+    margin-top: 6px;
   }
   /* 섹션 1 🍅 */
   .sec1 {
@@ -53,32 +44,19 @@
     margin: 0 auto;
   }
   /* 섹션 2 🍅 */
-  /* .sec2 {
-    margin-bottom: 26rem;
-    min-height: 200vw;
-    padding: 40rem 1rem 0;
-    position: relative;
+  .sticky_con .center_video {
+    width: 85%;
+    height: 60%;
   }
-  .sec2 .video_reel {
-    height: 120%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  .sticky_con .left_list {
+    left: 0.8vw;
+    top: 45%;
   }
-  .sec2 .video_reel .inner_grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 3rem;
-    gap: 0 3rem;
+  .sticky_con .right_list {
+    align-items: flex-end;
+    right: 0.8vw;
+    top: 51%;
   }
-  .inner_grid .center_video {
-    grid-column: 1 / span 2;
-    height: 80%;
-  }
-  .inner_grid .center_video video {
-    width: auto;
-    height: 100%;
-  } */
   /* 섹션 3 🍅 */
   .brand_wrap {
     margin-top: 0;
@@ -191,30 +169,6 @@
   .bottom_grid .text_box a {
     margin: 0 auto;
   }
-  /* 섹션 2 🍅 */
-  /* /* .sec2 {
-    height: auto;
-    padding: 0;
-    margin-bottom: 16rem;
-  } */
-  /* .sec2 .center_video {
-    height: 100vh;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 4rem;
-    display: flex;
-    align-items: center;
-  } */
-  .sec2 .center_video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    grid-column: 1 / span 2;
-  }
-  /* .sec2 p {
-    font-size: 7.6vw;
-    line-height: 0.9;
-    font-weight: 760;
-  }  */
 
   /* 섹션 3 🍅 */
   .brand_wrap {
@@ -263,24 +217,6 @@
   .ham_button {
     display: none;
   }
-  /* 섹션 2 🍅 */
-  /* .sec2 {
-    height: 120;
-    padding: 0;
-    margin-bottom: 8rem;
-  }
-  .sec2 .center_video {
-    height: 100vh;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 4rem;
-    display: flex;
-    align-items: center;
-  }
-  .sec2 .center_video video {
-    height: 80%;
-    object-fit: cover;
-    grid-column: 1 / span 4;
-  } */
   /* 섹션 3 🍅 */
   .brand_wrap {
     margin-top: 0;
