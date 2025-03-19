@@ -89,13 +89,13 @@ const printTime = () => {
     const minute = clockEl.querySelector(".minute");
 
     if (clockEl.dataset.zone === "new-york") {
-      getTime(-5);
+      getTime(-4);
     }
     if (clockEl.dataset.zone === "los-angeles") {
-      getTime(-8);
+      getTime(-7);
     }
     if (clockEl.dataset.zone === "miami") {
-      getTime(-5);
+      getTime(-4);
     }
 
     hour.textContent = currentHour;
